@@ -8,8 +8,8 @@ This repository contains C/C++ code that you can use to develop shared code for 
 
 # TODO
 
-*[] Create project structure
-*[] Create skeleton
-*[] Create environment embedded (ESP32)
-*[] Create environment native (ESP32)
-*[] Create environment pi (Raspberry Pi)
+* Create project structure
+* Create skeleton
+* Create environment embedded (ESP32)
+* Create environment native (ESP32)
+* Create environment pi (Raspberry Pi)
