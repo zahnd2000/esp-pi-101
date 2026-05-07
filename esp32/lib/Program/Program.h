@@ -1,7 +1,7 @@
 /**
 MIT License  
  
-Copyright (c) 2026 Janik Zahnd 
+Copyright (c) 2023-2026 Ronald Rink
  
 Permission is hereby granted, free of charge, to any person obtaining a copy  
 of this software and associated documentation files (the "Software"), to deal  
@@ -22,24 +22,43 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include "../Program/Program.h"
+#if defined(ESP_PLATFORM)
 
-extern "C"
+#pragma once
+
+#include <memory>
+
+namespace Program
 {
-    void app_main()
+    #define NAMEOF(name) #name
+
+    #define LED_BUILTIN GPIO_NUM_2
+
+    class Program
     {
-        #if defined(ESP_PLATFORM)
+        private:
+            std::string message = "Hello, world!";
+            
+            explicit Program();
 
-        auto instance = Program::Program::Factory::Create();
-        instance->Invoke();
+        public:
+            Program(Program&& instance) noexcept;
+            Program(const Program& instance) = delete;
+            Program& operator=(const Program& instance) = delete;
 
-        #endif
-    }
+            static void OutputFunc(void *pvParameter);
 
-    int main()
-    {
-        app_main();
+            virtual void Invoke();
+        
+        class Factory
+        {
+            private:
+                Factory() = delete;
 
-        return 0;
-    }
+            public:
+                static std::shared_ptr<Program> Create();
+        };
+    };
 }
+
+#endif

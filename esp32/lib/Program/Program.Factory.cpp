@@ -1,7 +1,7 @@
 /**
 MIT License  
  
-Copyright (c) 2026 Janik Zahnd 
+Copyright (c) 2023-2026 Ronald Rink
  
 Permission is hereby granted, free of charge, to any person obtaining a copy  
 of this software and associated documentation files (the "Software"), to deal  
@@ -22,24 +22,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include "../Program/Program.h"
+#if defined(ESP_PLATFORM)
 
-extern "C"
+#include "Program.h"
+
+namespace Program
 {
-    void app_main()
+    std::shared_ptr<Program> Program::Factory::Create()
     {
-        #if defined(ESP_PLATFORM)
-
-        auto instance = Program::Program::Factory::Create();
-        instance->Invoke();
-
-        #endif
-    }
-
-    int main()
-    {
-        app_main();
-
-        return 0;
+        Program instance;
+        
+        return std::make_shared<Program>(std::move(instance));
     }
 }
+
+#endif

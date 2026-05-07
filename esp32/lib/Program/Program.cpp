@@ -1,7 +1,7 @@
 /**
 MIT License  
  
-Copyright (c) 2026 Janik Zahnd 
+Copyright (c) 2023-2026 Ronald Rink
  
 Permission is hereby granted, free of charge, to any person obtaining a copy  
 of this software and associated documentation files (the "Software"), to deal  
@@ -22,24 +22,39 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include "../Program/Program.h"
+#if defined(ESP_PLATFORM)
 
-extern "C"
+#include "Program.h"
+#include "../Gpio/Pin.h"
+#include "../Utils/Threading.h"
+
+#include <stdio.h>
+
+#include <Contract.h>
+
+namespace Program
 {
-    void app_main()
+    Program::Program()
     {
-        #if defined(ESP_PLATFORM)
+        auto pin = new Gpio::Pin(LED_BUILTIN, GPIO_MODE_OUTPUT);
 
-        auto instance = Program::Program::Factory::Create();
-        instance->Invoke();
-
-        #endif
     }
 
-    int main()
+    Program::Program(Program&& instance) noexcept
     {
-        app_main();
+        // N/A
+    }
 
-        return 0;
+    void Program::Invoke()
+    {
+        while(true)
+        {
+            printf(message.c_str());
+            printf("\r");
+
+            Utils::Threading::Sleep(900);
+        }
     }
 }
+
+#endif
