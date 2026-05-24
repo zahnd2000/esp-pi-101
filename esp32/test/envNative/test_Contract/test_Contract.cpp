@@ -66,7 +66,7 @@ extern "C"
         {
             ArbitraryClass sut;
 
-            auto result = sut.ThrowsOnTrue(false);
+            [[maybe_unused]] auto result = sut.ThrowsOnTrue(false);
 
             TEST_ASSERT_TRUE(result);
         }
@@ -78,7 +78,7 @@ extern "C"
             auto hasThrown = false;
             try
             {
-                auto result = sut.ThrowsOnTrue(true);
+                [[maybe_unused]] auto result = sut.ThrowsOnTrue(true);
             }
             catch(const std::exception& e)
             {
@@ -95,7 +95,7 @@ extern "C"
             auto hasThrown = false;
             try
             {
-                auto result = sut.ThrowsOnTrueWithDefaultArgument(true);
+                [[maybe_unused]] auto result = sut.ThrowsOnTrueWithDefaultArgument(true);
             }
             catch(const std::exception& e)
             {

@@ -27,6 +27,7 @@ SOFTWARE.
 #include "Program.h"
 #include "../Gpio/Pin.h"
 #include "../Utils/Threading.h"
+#include "../Calculator/CalculatorDouble.hpp"
 
 #include <stdio.h>
 

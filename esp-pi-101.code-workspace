@@ -1,0 +1,40 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "esp32",
+			"path": "esp32"
+		}
+	],
+    "settings": {
+        "cSpell.words": [
+            "APPCPU",
+            "CCOMP",
+            "commoncpp",
+            "commonesp",
+            "devkitc",
+            "espidf",
+            "espressif",
+            "fexceptions",
+            "GDMA",
+            "HMAC",
+            "Janik",
+            "LCDCAM",
+            "LEDC",
+            "MCPWM",
+            "MEMCPY",
+            "MEMPROT",
+            "PCNT",
+            "PSRAM",
+            "SDMMC",
+            "SRCS",
+            "SYSTIMER",
+            "TWAI",
+            "unflags",
+            "XTAL",
+            "Zahnd"
+        ]
+    }
+}
