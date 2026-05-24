@@ -1,3 +1,3 @@
 {
-    "cmake.sourceDirectory": "C:/src/esp-pi-101/esp32/src"
+    "cmake.sourceDirectory": "${workspaceFolder}/esp32/src"
 }

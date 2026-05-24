@@ -1,0 +1,21 @@
+{
+  "name": "cpp-embedded",
+  "image": "ghcr.io/dfch/cpp-embedded:1.0.0",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "remoteUser": "root",
+  "customizations": {
+      "vscode": {
+        "cmake.configureOnOpen": false,
+        "settings": {  
+            "platformio-ide.useBuiltinPIOCore": false,  
+            "platformio-ide.pioHomeDir": "/opt/platformio-venv"  
+        },
+        "extensions": [
+        "platformio.platformio-ide",
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools"
+      ]
+    }
+  }
+}
