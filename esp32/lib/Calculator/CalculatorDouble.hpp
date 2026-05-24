@@ -74,7 +74,7 @@ namespace Calculator
         /**
          * @brief This is the result of the last arithmetic operation.
          */
-        const double result() const noexcept
+        double result() const noexcept
         {
             return result_;
         }
@@ -83,7 +83,7 @@ namespace Calculator
          * @brief This shows if the last arithmetic operation caused an error.
          * @return A `bool` that is `true`, if the last arithmetic operation caused an error. `False`, if not.
          */
-        const bool is_error() const noexcept
+        bool is_error() const noexcept
         {
             return is_error_;
         }
